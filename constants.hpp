@@ -1,3 +1,4 @@
+#include <cpr/auth.h>
 #include <string>
 using string = std::string;
 namespace arena {
