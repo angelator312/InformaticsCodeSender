@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.31.6)
 project(CodeSender)
-find_package(cpr REQUIRED)
+find_package(cpr)
 if(NOT cpr_FOUND)
   message("No cpr")
   include(FetchContent)
