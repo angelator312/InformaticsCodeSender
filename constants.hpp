@@ -31,7 +31,7 @@ const string TEST_RESPONSE =
     "\"competitionProblemId\":102067}";
 
 
-const string PATH_TO_CONFIG=".config/CodeSenderData/";
+const string PATH_TO_CONFIG="/.config/CodeSenderData/";
 
 #if __linux__
 const string OPEN_BROWSER_COMMAND = "xdg-open";

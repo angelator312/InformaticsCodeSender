@@ -11,16 +11,17 @@ void SetAuth(int argc, char **argv) {
       return;
     }
     string home = getenv("HOME");
-    printf("path:%s\n", PATH_TO_CONFIG.c_str());
-    auto e = std::filesystem::create_directories(PATH_TO_CONFIG);
-    std::ofstream f(PATH_TO_CONFIG + "pesho.env");
+    string path = home + PATH_TO_CONFIG;
+    auto e = std::filesystem::create_directories(path);
+    std::ofstream f(path + "pesho.env");
     f << argv[3] << "\n";
     f << argv[4] << "\n";
     f.close();
   }
 }
 std::pair<string, string> GetPeshoAuth() {
-  std::ifstream f(PATH_TO_CONFIG + "pesho.env");
+  string home = getenv("HOME");
+  std::ifstream f(home + PATH_TO_CONFIG + "pesho.env");
   string s, s2;
   getline(f, s, '\n');
   getline(f, s2, '\n');
