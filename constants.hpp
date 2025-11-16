@@ -17,10 +17,21 @@ namespace arena {
         "https://arena.olimpiici.com";
 } // namespace arena
 
+namespace pesho {
+    static const string SUBMIT_URL = "https://pesho.org/api/user/assignments/"
+                                    "%s/tasks/%s/submitcode";
+    static const string SUBMISSION_URL =
+        "https://pesho.org/assignments/%s/submissions/%s";
+} // namespace pesho
+
+const string TEST_RESPONSE2 = "{\n  \"id\" : 560942\n}";
 const string TEST_RESPONSE =
     "{\"id\":442908,\"verdict\":\"waiting\",\"uploadDate\":\"2025-11-16T08:10:"
     "34.712+02:00\",\"securityKey\":\"CWefBOLTYBe5pw9vPOej\",\"userId\":2423,"
     "\"competitionProblemId\":102067}";
+
+
+const string PATH_TO_CONFIG=".config/CodeSenderData/";
 
 #if __linux__
 const string OPEN_BROWSER_COMMAND = "xdg-open";

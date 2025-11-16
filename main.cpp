@@ -1,7 +1,10 @@
-#include "main.hpp"
+#include "auth.cpp"
 #include <cpr/auth.h>
 #include <cpr/curl_container.h>
 #include <cstdio>
+#include <cstdlib>
+#include <filesystem>
+#include <fstream>
 #include <utility>
 #include <vector>
 
@@ -12,6 +15,10 @@ int main(int argc, char **argv) {
     return 0;
   }
   filename = argv[1];
+  if (filename == "--authenticate") {
+    SetAuth(argc, argv);
+    return 0;
+  }
   Code code = GetCodeFromFile(filename);
   printf("param1:%s;param2:%s\n", code.first.c_str(), code.second.c_str());
   if (code.type == TypeOfSite::ARENA) {
@@ -48,11 +55,11 @@ string SendCodeToPesho(const char *assigment, const char *task, string code) {
   char url[pesho::SUBMIT_URL.size() + code.size() + 20];
   sprintf(url, pesho::SUBMIT_URL.c_str(), assigment, task);
   printf("POST %s\n", url);
-  cpr::Response r = cpr::Post(cpr::Url(url),
-                              cpr::Authentication{pesho::AUTH.first.c_str(),
-                                                  pesho::AUTH.second.c_str(),
-                                                  cpr::AuthMode::BASIC},
-                              cpr::Parameters{{"code", code}});
+  auto auth = GetPeshoAuth();
+  cpr::Response r = cpr::Post(
+      cpr::Url(url),
+      cpr::Authentication{auth.first, auth.second, cpr::AuthMode::BASIC},
+      cpr::Parameters{{"code", code}});
   printf("RESPONSE: %s", r.text.c_str());
   return r.text;
 }

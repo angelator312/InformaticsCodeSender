@@ -24,3 +24,5 @@ string URLFromID(const string id, string startUrl);
 void OpenURLInBrowser(const string url);
 std::pair<string, string> GetParamsForArena(string url);
 std::pair<string, string> GetParamsForPesho(string url);
+void SetAuth(int argc, char **argv);
+std::pair<string, string> GetPeshoAuth();
