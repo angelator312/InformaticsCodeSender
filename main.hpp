@@ -1,0 +1,23 @@
+#include "constants.hpp"
+#include <cpr/api.h>
+#include <cpr/bearer.h>
+#include <cpr/body.h>
+#include <cpr/cpr.h>
+#include <cpr/cprtypes.h>
+#include <vector>
+
+enum TypeOfSite { PESHO, ARENA };
+struct Code {
+  string code;
+  TypeOfSite type;
+  string first, second;
+};
+
+Code GetCodeFromFile(const string filename);
+string SendCodeToArena(const char *competitionId,
+                       const char *canonicalCompetitionId,string code);
+void ForPesho(int assigment, int task);
+string GetIDFromString(string s);
+string URLFromID(const string id, string startUrl);
+void OpenURLInBrowser(const string url);
+std::pair<string, string> GetParamsForArena(string url);
