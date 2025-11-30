@@ -25,5 +25,6 @@ std::pair<string, string> GetPeshoAuth() {
   string s, s2;
   getline(f, s, '\n');
   getline(f, s2, '\n');
+  f.close();
   return {s, s2};
 }
