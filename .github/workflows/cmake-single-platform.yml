@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Add meson
-        run: apt install meson
+        run: sudo apt install -y meson
 
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
