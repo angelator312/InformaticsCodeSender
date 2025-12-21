@@ -15,7 +15,8 @@ struct Code {
 
 Code GetCodeFromFile(const string filename);
 string SendCodeToArena(const char *competitionId,
-                       const char *canonicalCompetitionId, string code);
+                       const char *canonicalCompetitionId, string code,
+                       string bearerToken);
 string SendCodeToPesho(const char *assigment, const char *task, string code);
 void ForPesho(int assigment, int task);
 string GetIDFromString(string s);
@@ -26,3 +27,4 @@ std::pair<string, string> GetParamsForArena(string url);
 std::pair<string, string> GetParamsForPesho(string url);
 void SetAuth(int argc, char **argv);
 std::pair<string, string> GetPeshoAuth();
+string GetArenaAuth();

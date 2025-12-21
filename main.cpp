@@ -3,7 +3,6 @@
 #include <cpr/curl_container.h>
 #include <cstdio>
 #include <cstdlib>
-#include <filesystem>
 #include <fstream>
 #include <utility>
 #include <vector>
@@ -22,8 +21,8 @@ int main(int argc, char **argv) {
   Code code = GetCodeFromFile(filename);
   printf("param1:%s;param2:%s\n", code.first.c_str(), code.second.c_str());
   if (code.type == TypeOfSite::ARENA) {
-    string response =
-        SendCodeToArena(code.first.c_str(), code.second.c_str(), code.code);
+    string response = SendCodeToArena(code.first.c_str(), code.second.c_str(),
+                                      code.code, GetArenaAuth());
     string id = GetIDFromString(response);
     string url = URLFromID(id, arena::SUBMISSION_URL);
     OpenURLInBrowser(url);
@@ -39,14 +38,15 @@ int main(int argc, char **argv) {
 }
 
 string SendCodeToArena(const char *competitionId,
-                       const char *canonicalCompetitionId, string code) {
+                       const char *canonicalCompetitionId, string code,
+                       string bearerToken) {
   char url[arena::SUBMIT_URL.size() + 3];
   sprintf(url, arena::SUBMIT_URL.c_str(), competitionId,
           canonicalCompetitionId);
   printf("POST %s\n", url);
   cpr::Response r =
-      cpr::Post(cpr::Url(url), cpr::Bearer(arena::BEARER_TOKEN),
-                cpr::Body{code}, cpr::Header{{"Content-Type", "text/plain"}});
+      cpr::Post(cpr::Url(url), cpr::Bearer(bearerToken), cpr::Body{code},
+                cpr::Header{{"Content-Type", "text/plain"}});
   printf("RESPONSE: %s", r.text.c_str());
   return r.text;
 }

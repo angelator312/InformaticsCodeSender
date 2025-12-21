@@ -17,14 +17,34 @@ void SetAuth(int argc, char **argv) {
     f << argv[3] << "\n";
     f << argv[4] << "\n";
     f.close();
+  } else {
+    if (argc < 4) {
+      puts("Add Bearer token");
+      return;
+    }
+    string home = getenv("HOME");
+    string path = home + PATH_TO_CONFIG;
+    auto e = std::filesystem::create_directories(path);
+    std::ofstream f(path + "arena.env");
+    f << argv[3] << "\n";
+    f.close();
   }
 }
 std::pair<string, string> GetPeshoAuth() {
   string home = getenv("HOME");
-  std::ifstream f(home + PATH_TO_CONFIG + "pesho.env");
+  std::ifstream f(home + PATH_TO_CONFIG + pesho::CONFIG_FILENAME);
   string s, s2;
   getline(f, s, '\n');
   getline(f, s2, '\n');
   f.close();
   return {s, s2};
+}
+
+string GetArenaAuth() {
+  string home = getenv("HOME");
+  std::ifstream f(home + PATH_TO_CONFIG + arena::CONFIG_FILENAME);
+  string s;
+  getline(f, s, '\n');
+  f.close();
+  return s;
 }

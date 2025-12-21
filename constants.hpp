@@ -2,12 +2,6 @@
 #include <string>
 using string = std::string;
 namespace arena {
-    static const string BEARER_TOKEN =
-        "eyJhbGciOiJIUzUxMiJ9."
-        "eyJzdWIiOiJhbmdlbGF0b3IzMTIiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzY1ODI4MT"
-        "M5fQ.racA3TGlAo2JQz_"
-        "1fe8tsrg7KM6MxYj8a0aIBwKTjCAkxKZpnKYJi7q4kLaILkAthxSNNshfRqZAKsjOMmWnAQ";
-
     static const string SUBMIT_URL =
         "https://arena.olimpiici.com/api/competitions/%s/"
         "problem/%s/submit";
@@ -15,6 +9,7 @@ namespace arena {
         "https://arena.olimpiici.com/#/submission/%s/view";
     static const string ORIGIN_URL =
         "https://arena.olimpiici.com";
+    static const string CONFIG_FILENAME = "arena.env";
 } // namespace arena
 
 namespace pesho {
@@ -22,6 +17,7 @@ namespace pesho {
                                     "%s/tasks/%s/submitcode";
     static const string SUBMISSION_URL =
         "https://pesho.org/assignments/%s/submissions/%s";
+    static const string CONFIG_FILENAME = "pesho.env";
 } // namespace pesho
 
 const string TEST_RESPONSE2 = "{\n  \"id\" : 560942\n}";
