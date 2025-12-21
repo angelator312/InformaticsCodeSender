@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.31.6)
 project(CodeSender)
+set(CMAKE_FIND_LIBRARY_SUFFIXES .a .lib)
 find_package(cpr)
 if(NOT cpr_FOUND)
   message("No cpr")
