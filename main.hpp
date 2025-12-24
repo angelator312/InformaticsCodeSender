@@ -28,3 +28,5 @@ std::pair<string, string> GetParamsForPesho(string url);
 void SetAuth(int argc, char **argv);
 std::pair<string, string> GetPeshoAuth();
 string GetArenaAuth();
+void SaveLastFile(string filename);
+string GetLastFilename();

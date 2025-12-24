@@ -26,7 +26,7 @@ const string TEST_RESPONSE =
     "34.712+02:00\",\"securityKey\":\"CWefBOLTYBe5pw9vPOej\",\"userId\":2423,"
     "\"competitionProblemId\":102067}";
 
-
+const string PATH_TO_LAST_SAVE="lastSave.txt";
 const string PATH_TO_CONFIG="/.config/CodeSenderData/";
 
 #if __linux__

@@ -1,4 +1,4 @@
-#include "auth.cpp"
+#include "lastSave.cpp"
 #include <cpr/auth.h>
 #include <cpr/curl_container.h>
 #include <cstdio>
@@ -18,6 +18,10 @@ int main(int argc, char **argv) {
     SetAuth(argc, argv);
     return 0;
   }
+  if (filename == "-l")
+    filename = GetLastFilename();
+  else
+    SaveLastFile(filename);
   Code code = GetCodeFromFile(filename);
   printf("param1:%s;param2:%s\n", code.first.c_str(), code.second.c_str());
   if (code.type == TypeOfSite::ARENA) {

@@ -2,7 +2,7 @@
 #include <cstdio>
 void SetAuth(int argc, char **argv) {
   if (argc < 3) {
-    printf("Add what to authenticate");
+    puts("Add what to authenticate");
     return;
   }
   if (argv[2][0] == 'p') {
@@ -17,7 +17,7 @@ void SetAuth(int argc, char **argv) {
     f << argv[3] << "\n";
     f << argv[4] << "\n";
     f.close();
-  } else {
+  } else if (argv[2][0] == 'a') {
     if (argc < 4) {
       puts("Add Bearer token");
       return;
