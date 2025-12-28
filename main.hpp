@@ -14,8 +14,7 @@ struct Code {
 };
 
 Code GetCodeFromFile(const string filename);
-string SendCodeToArena(const char *competitionId,
-                       const char *canonicalCompetitionId, string code,
+string SendCodeToArena(const char *competitionId, const char *canonicalCompetitionId, string code,
                        string bearerToken);
 string SendCodeToPesho(const char *assigment, const char *task, string code);
 void ForPesho(int assigment, int task);

@@ -1,0 +1,14 @@
+---
+Language: Cpp
+AllowShortBlocksOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AllowShortFunctionsOnASingleLine: All
+AllowShortLoopsOnASingleLine: true
+AllowShortCaseExpressionOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
+AllowShortLambdasOnASingleLine: true
+ColumnLimit: 100
+OneLineFormatOffRegex: // format-off
+---
+

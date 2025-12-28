@@ -32,7 +32,7 @@ void SetAuth(int argc, char **argv) {
 }
 std::pair<string, string> GetPeshoAuth() {
   string home = getenv("HOME");
-  std::ifstream f(home + PATH_TO_CONFIG + pesho::CONFIG_FILENAME);
+  std::ifstream f(home + PATH_TO_CONFIG + PESHO_CONFIG_FILENAME);
   string s, s2;
   getline(f, s, '\n');
   getline(f, s2, '\n');
@@ -42,7 +42,7 @@ std::pair<string, string> GetPeshoAuth() {
 
 string GetArenaAuth() {
   string home = getenv("HOME");
-  std::ifstream f(home + PATH_TO_CONFIG + arena::CONFIG_FILENAME);
+  std::ifstream f(home + PATH_TO_CONFIG + ARENA_CONFIG_FILENAME);
   string s;
   getline(f, s, '\n');
   f.close();
